@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toxic Comment Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin-top: 100px;
+        }
+        textarea {
+            width: 60%;
+            height: 100px;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Toxic Comment Classifier 💬</h1>
+
+    <form method="POST">
+        <textarea name="text" placeholder="Type a comment here...">{{ user_input }}</textarea><br><br>
+        <button type="submit">Check Toxicity</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">{{ prediction }}</div>
+    {% else %}
+        <div class="result" style="color: gray;">Enter a comment and click "Check Toxicity"</div>
+    {% endif %}
+</body>
+</html>
+
